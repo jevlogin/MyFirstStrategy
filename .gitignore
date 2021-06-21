@@ -361,3 +361,8 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Assets/3D Game Kit - Character Pack
+/Assets/3D Game Kit - Environment Pack
+/Assets/TextMesh Pro/Documentation
+/Library
+/Temp
