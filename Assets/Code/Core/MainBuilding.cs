@@ -4,7 +4,7 @@ using Abstractions;
 
 namespace Core
 {
-    public sealed class MainBuilding : MonoBehaviour, ISelectableItem
+    public sealed class MainBuilding : MonoBehaviour, ISelectableItem, IUnitProducer
     {
         [SerializeField] private GameObject _unitPrefab;
         [SerializeField] private Transform _unitsParent;

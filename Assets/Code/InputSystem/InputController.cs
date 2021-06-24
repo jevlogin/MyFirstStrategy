@@ -23,7 +23,14 @@ namespace InputSystem
                 {
                     if (hitInfo.collider.TryGetComponent<ISelectableItem>(out var selectableItem))
                     {
-                        _currentSelected.SetValue(selectableItem);
+                        if (_currentSelected.Value == null)
+                        {
+                            _currentSelected.SetValue(selectableItem);
+                        }
+                        else if (!_currentSelected.Value.Equals(selectableItem))
+                        {
+                            _currentSelected.SetValue(selectableItem);
+                        }
                     }
                 }
             }

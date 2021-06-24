@@ -1,7 +1,8 @@
 using UnityEngine;
 using Model;
 using View;
-
+using Abstractions;
+using System;
 
 namespace Presenter
 {
@@ -12,7 +13,7 @@ namespace Presenter
 
         private void Start()
         {
-            UpdateView();
+            UpdateView(_model.Value);
             _model.OnUpdated += UpdateView;
         }
 
@@ -21,14 +22,13 @@ namespace Presenter
             _model.OnUpdated -= UpdateView;
         }
 
-        private void UpdateView()
+        private void UpdateView(ISelectableItem obj)
         {
             if (_model.Value == null)
             {
                 _view.gameObject.SetActive(false);
                 return;
             }
-
 
             _view.gameObject.SetActive(true);
             _view.Icon = _model.Value.Icon;

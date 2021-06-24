@@ -15,9 +15,9 @@ namespace Model
         public void SetValue(ISelectableItem item)
         {
             _value = item;
-            OnUpdated?.Invoke();
+            OnUpdated?.Invoke(item);
         }
 
-        public event Action OnUpdated;
+        public event Action<ISelectableItem> OnUpdated;
     }
 }

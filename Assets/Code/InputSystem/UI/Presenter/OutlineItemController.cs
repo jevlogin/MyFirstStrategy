@@ -1,3 +1,4 @@
+using Abstractions;
 using Model;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace Presenter
     public sealed class OutlineItemController : MonoBehaviour
     {
         [SerializeField] private SelectedItemModel _model;
+
         [SerializeField] private Material _outlineMaterial;
         [SerializeField] private List<MeshRenderer> _meshRenderers = new List<MeshRenderer>();
         [SerializeField] private Material[] _oldMaterials;
@@ -30,7 +32,7 @@ namespace Presenter
             _model.OnUpdated -= UpdateOutline;
         }
 
-        private void UpdateOutline()
+        private void UpdateOutline(ISelectableItem selectableItem)
         {
             foreach (var renderer in _meshRenderers)
             {
