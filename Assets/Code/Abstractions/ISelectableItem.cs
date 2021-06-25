@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -12,5 +13,7 @@ namespace Abstractions
         float Health { get; }
 
         float MaxHealth { get; }
+
+        List<MeshRenderer> MeshRenderers { get; }
     }
 }

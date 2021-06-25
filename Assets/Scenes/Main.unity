@@ -5623,6 +5623,10 @@ PrefabInstance:
       propertyPath: _unitsParent
       value: 
       objectReference: {fileID: 203627078}
+    - target: {fileID: 4402800322382462108, guid: 973a0b800f6b3d343a1768055ed2ffc7, type: 3}
+      propertyPath: _outLineMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: ffa4e83286170dc488517cea2f31f97f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 973a0b800f6b3d343a1768055ed2ffc7, type: 3}
 --- !u!1001 &6599400813505205738
@@ -5680,6 +5684,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmalBuild
       objectReference: {fileID: 0}
+    - target: {fileID: 6599400814780737346, guid: 19bb52ec0d342544d93b0e8af4281d36, type: 3}
+      propertyPath: _outLineMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: ffa4e83286170dc488517cea2f31f97f, type: 2}
     - target: {fileID: 6599400814780737359, guid: 19bb52ec0d342544d93b0e8af4281d36, type: 3}
       propertyPath: _icon
       value: 

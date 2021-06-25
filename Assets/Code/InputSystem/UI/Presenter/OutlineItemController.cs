@@ -9,63 +9,70 @@ namespace Presenter
 {
     public sealed class OutlineItemController : MonoBehaviour
     {
-        [SerializeField] private SelectedItemModel _model;
+        #region Fields
 
-        [SerializeField] private Material _outlineMaterial;
-        [SerializeField] private List<MeshRenderer> _meshRenderers = new List<MeshRenderer>();
+        [SerializeField] private SelectedItemModel _model;
+        [SerializeField] private Material _outLineMaterial;
         [SerializeField] private Material[] _oldMaterials;
-        [SerializeField] private Material[] _newMaterials;
-        [SerializeField] private bool _isSelected = false;
+        [SerializeField] private List<Material> _newMaterials;
+
+        private ISelectableItem _value;
+
+        #endregion
+
+
+        #region ClassLifeCycles
 
         private void Awake()
         {
-            _meshRenderers = GetComponentsInChildren<MeshRenderer>().ToList();
-            SetNewMaterialsOutline();
-            _oldMaterials = _meshRenderers.FirstOrDefault().materials;
             _model.OnUpdated += UpdateOutline;
         }
-
-       
 
         private void OnDestroy()
         {
             _model.OnUpdated -= UpdateOutline;
         }
 
+        #endregion
+
+
+        #region Methods
+
         private void UpdateOutline(ISelectableItem selectableItem)
         {
-            foreach (var renderer in _meshRenderers)
+            if (_value != null)
             {
-                if (_isSelected)
-                {
-                    renderer.materials = _oldMaterials;
-                    _isSelected = !_isSelected;
-                }
-                else
-                {
-                    renderer.materials = _newMaterials;
-                    _isSelected = !_isSelected;
-                }
-
+                SetOldMaterials();
             }
+            _value = selectableItem;
+
+            SetNewMaterials();
         }
 
-        private void SetNewMaterialsOutline()
+        private void SetNewMaterials()
         {
-            foreach (var renderer in _meshRenderers)
+            foreach (var renderer in _value.MeshRenderers)
             {
-                _newMaterials = new Material[renderer.materials.Length + 1];
-
-                for (int i = 0; i < _newMaterials.Length; i++)
+                _newMaterials = new List<Material>
                 {
-                    if (i == 0)
-                    {
-                        _newMaterials[i] = _outlineMaterial;
-                        continue;
-                    }
-                    _newMaterials[i] = renderer.materials[i - 1];
-                }
+                    _outLineMaterial
+                };
+                _newMaterials.AddRange(renderer.materials);
+
+                renderer.materials = _newMaterials.ToArray();
             }
         }
+
+        private void SetOldMaterials()
+        {
+            foreach (var renderer in _value.MeshRenderers)
+            {
+                _oldMaterials = renderer.materials
+                    .Where(material => material.shader.name != _outLineMaterial.shader.name).ToArray();
+                renderer.materials = _oldMaterials;
+            }
+        }
+
+        #endregion
     }
 }

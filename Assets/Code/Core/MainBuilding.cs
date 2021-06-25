@@ -1,6 +1,7 @@
 using UnityEngine;
 using Abstractions;
-
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Core
 {
@@ -13,6 +14,7 @@ namespace Core
         [SerializeField] private string _name;
         [SerializeField] private float _health;
         [SerializeField] private float _maxHealth;
+        private List<MeshRenderer> _meshRenderers;
 
         public Sprite Icon => _icon;
 
@@ -21,6 +23,13 @@ namespace Core
         public float Health => _health;
 
         public float MaxHealth => _maxHealth;
+
+        public List<MeshRenderer> MeshRenderers => _meshRenderers;
+
+        private void Awake()
+        {
+            _meshRenderers = GetComponentsInChildren<MeshRenderer>().ToList();
+        }
 
         public void ProduceUnit()
         {
