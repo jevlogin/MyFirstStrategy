@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Code\InputSystem\UI\View\SelectedItemView.cs" />
+    <Compile Include="Assets\Code\InputSystem\UI\View\ControlButtonPanelView.cs" />
     <Compile Include="Assets\Code\InputSystem\UI\View\MouseInteractionsHandler.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -675,6 +676,10 @@
     <ProjectReference Include="Model.csproj">
       <Project>{05362072-DFC6-6272-7E56-CE79DE9C4E93}</Project>
       <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="Core.csproj">
+      <Project>{1F6E9C80-5402-D48D-27AB-7F5ECE476A78}</Project>
+      <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

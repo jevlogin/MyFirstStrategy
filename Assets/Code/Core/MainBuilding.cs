@@ -5,9 +5,8 @@ using System.Linq;
 
 namespace Core
 {
-    public sealed class MainBuilding : MonoBehaviour, ISelectableItem, IUnitProducer
+    public sealed class MainBuilding : CommandExecutorBase<IProduceUnitCommand>, ISelectableItem
     {
-        [SerializeField] private GameObject _unitPrefab;
         [SerializeField] private Transform _unitsParent;
 
         [SerializeField] private Sprite _icon;
@@ -26,14 +25,14 @@ namespace Core
 
         public List<MeshRenderer> MeshRenderers => _meshRenderers;
 
+        protected override void ExecuteSpecificCommand(IProduceUnitCommand command)
+        {
+            Instantiate(command.UnitPrefab, new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity, _unitsParent);
+        }
+
         private void Awake()
         {
             _meshRenderers = GetComponentsInChildren<MeshRenderer>().ToList();
-        }
-
-        public void ProduceUnit()
-        {
-            Instantiate(_unitPrefab, new Vector3(Random.Range(-10.0f, 10.0f), 0, Random.Range(-10.0f, 10.0f)), Quaternion.identity, _unitsParent);
         }
     }
 }

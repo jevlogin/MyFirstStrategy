@@ -16,7 +16,7 @@ namespace Presenter
         [SerializeField] private Material[] _oldMaterials;
         [SerializeField] private List<Material> _newMaterials;
 
-        private ISelectableItem _value;
+        private ISelectableItem _currentSelectable;
 
         #endregion
 
@@ -40,18 +40,18 @@ namespace Presenter
 
         private void UpdateOutline(ISelectableItem selectableItem)
         {
-            if (_value != null)
+            if (_currentSelectable != null)
             {
-                SetOldMaterials();
+                SetDeselected();
             }
-            _value = selectableItem;
+            _currentSelectable = selectableItem;
 
-            SetNewMaterials();
+            SetSelected();
         }
 
-        private void SetNewMaterials()
+        private void SetSelected()
         {
-            foreach (var renderer in _value.MeshRenderers)
+            foreach (var renderer in _currentSelectable.MeshRenderers)
             {
                 _newMaterials = new List<Material>
                 {
@@ -63,9 +63,9 @@ namespace Presenter
             }
         }
 
-        private void SetOldMaterials()
+        private void SetDeselected()
         {
-            foreach (var renderer in _value.MeshRenderers)
+            foreach (var renderer in _currentSelectable.MeshRenderers)
             {
                 _oldMaterials = renderer.materials
                     .Where(material => material.shader.name != _outLineMaterial.shader.name).ToArray();

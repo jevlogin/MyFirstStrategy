@@ -56,8 +56,14 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Code\Abstractions\IUnitProducer.cs" />
+    <Compile Include="Assets\Code\Abstractions\IProduceUnitCommand.cs" />
+    <Compile Include="Assets\Code\Abstractions\IPatroulCommand.cs" />
+    <Compile Include="Assets\Code\Abstractions\ICommandExecutor.cs" />
+    <Compile Include="Assets\Code\Abstractions\IAttackCommand.cs" />
     <Compile Include="Assets\Code\Abstractions\ISelectableItem.cs" />
+    <Compile Include="Assets\Code\Abstractions\ICommand.cs" />
+    <Compile Include="Assets\Code\Abstractions\IMoveCommand.cs" />
+    <Compile Include="Assets\Code\Abstractions\IStopCommand.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Code\Abstractions\Abstractions.asmdef" />
@@ -665,6 +671,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Utils.csproj">
+      <Project>{7DA4B339-3678-69B6-C535-D2EAD1DC7883}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

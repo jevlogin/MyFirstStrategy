@@ -741,6 +741,10 @@
       <Project>{FC46613B-A1CB-B926-BFA3-BBE29D52DF49}</Project>
       <Name>Presenter</Name>
     </ProjectReference>
+    <ProjectReference Include="Utils.csproj">
+      <Project>{7DA4B339-3678-69B6-C535-D2EAD1DC7883}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
     <ProjectReference Include="Model.csproj">
       <Project>{05362072-DFC6-6272-7E56-CE79DE9C4E93}</Project>
       <Name>Model</Name>

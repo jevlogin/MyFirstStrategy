@@ -1,17 +1,24 @@
 using Abstractions;
 using Model;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 
-namespace JevLogin
+namespace View
 {
     internal sealed class MouseInteractionsHandler : MonoBehaviour
     {
-        private Camera _camera;
+        #region Fields
+
         [SerializeField] private SelectedItemModel _selectableValue;
+        [SerializeField] private EventSystem _eventSystem;
+
+        private Camera _camera;
+
+        #endregion
+
+        #region UnityMethods
 
         private void Awake()
         {
@@ -20,24 +27,30 @@ namespace JevLogin
 
         private void Update()
         {
-            if (!Input.GetButtonUp("Fire1"))
+            //TODO IsPointerOverGameObject - не работает!!!
+            if (_eventSystem.IsPointerOverGameObject())
             {
-                return;
+                if (!Input.GetButtonUp("Fire1"))
+                {
+                    return;
+                }
+
+                var hits = Physics.RaycastAll(_camera.ScreenPointToRay(Input.mousePosition));
+                if (hits.Length == 0)
+                {
+                    return;
+                }
+                var mainBuilding = hits
+                    .Select(hit => hit.collider.GetComponentInParent<IProduceUnitCommand>())
+                    .Where(c => c != null)
+                    .FirstOrDefault();
+                if (mainBuilding == default)
+                {
+                    return;
+                }
             }
-            var hits = Physics.RaycastAll(_camera.ScreenPointToRay(Input.mousePosition));
-            if (hits.Length == 0)
-            {
-                return;
-            }
-            var mainBuilding = hits
-                .Select(hit => hit.collider.GetComponentInParent<IUnitProducer>())
-                .Where(c => c != null)
-                .FirstOrDefault();
-            if (mainBuilding == default)
-            {
-                return;
-            }
-            mainBuilding.ProduceUnit();
         }
+
+        #endregion
     }
 }
