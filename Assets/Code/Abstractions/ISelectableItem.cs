@@ -14,6 +14,6 @@ namespace Abstractions
 
         float MaxHealth { get; }
 
-        List<MeshRenderer> MeshRenderers { get; }
+        List<Renderer> Renderers { get; }
     }
 }

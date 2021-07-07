@@ -13,7 +13,7 @@ namespace Core
         [SerializeField] private string _name;
         [SerializeField] private float _health;
         [SerializeField] private float _maxHealth;
-        private List<MeshRenderer> _meshRenderers;
+        private List<Renderer> _meshRenderers;
 
         public Sprite Icon => _icon;
 
@@ -23,7 +23,7 @@ namespace Core
 
         public float MaxHealth => _maxHealth;
 
-        public List<MeshRenderer> MeshRenderers => _meshRenderers;
+        public List<Renderer> Renderers => _meshRenderers;
 
         protected override void ExecuteSpecificCommand(IProduceUnitCommand command)
         {
@@ -32,7 +32,7 @@ namespace Core
 
         private void Awake()
         {
-            _meshRenderers = GetComponentsInChildren<MeshRenderer>().ToList();
+            _meshRenderers = GetComponentsInChildren<Renderer>().ToList();
         }
     }
 }

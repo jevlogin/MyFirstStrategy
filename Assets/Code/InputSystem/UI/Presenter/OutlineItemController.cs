@@ -51,7 +51,7 @@ namespace Presenter
 
         private void SetSelected()
         {
-            foreach (var renderer in _currentSelectable.MeshRenderers)
+            foreach (var renderer in _currentSelectable.Renderers)
             {
                 _newMaterials = new List<Material>
                 {
@@ -65,7 +65,7 @@ namespace Presenter
 
         private void SetDeselected()
         {
-            foreach (var renderer in _currentSelectable.MeshRenderers)
+            foreach (var renderer in _currentSelectable.Renderers)
             {
                 _oldMaterials = renderer.materials
                     .Where(material => material.shader.name != _outLineMaterial.shader.name).ToArray();

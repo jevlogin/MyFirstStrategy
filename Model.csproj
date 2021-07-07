@@ -56,7 +56,19 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Code\InputSystem\UI\Model\MoveUnitCommandCreator.cs" />
+    <Compile Include="Assets\Code\InputSystem\UI\Model\AttackUnitCommandCreator.cs" />
+    <Compile Include="Assets\Code\InputSystem\UI\Model\ProduceUnitCommandCreator.cs" />
+    <Compile Include="Assets\Code\InputSystem\UI\Model\GroundClickModel.cs" />
+    <Compile Include="Assets\Code\InputSystem\UI\Model\PatroulUnitCommandCreator.cs" />
+    <Compile Include="Assets\Code\InputSystem\UI\Model\MoveUnitCommand.cs" />
     <Compile Include="Assets\Code\InputSystem\UI\Model\SelectedItemModel.cs" />
+    <Compile Include="Assets\Code\InputSystem\UI\Model\CommandCreator.cs" />
+    <Compile Include="Assets\Code\InputSystem\UI\Model\StopUnitCommandCreator.cs" />
+    <Compile Include="Assets\Code\InputSystem\UI\Model\StopUnitCommand.cs" />
+    <Compile Include="Assets\Code\InputSystem\UI\Model\ProduceUnitCommand.cs" />
+    <Compile Include="Assets\Code\InputSystem\UI\Model\ModelInstaller.cs" />
+    <Compile Include="Assets\Code\InputSystem\UI\Model\ControlButtonPanel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Code\InputSystem\UI\Model\Model.asmdef" />
@@ -299,14 +311,29 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="Zenject-usage">
+      <HintPath>Assets\Plugins\Zenject\Source\Usage\Zenject-usage.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Pdb">
+      <HintPath>Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Pdb.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.5.7\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Rocks">
+      <HintPath>Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Rocks.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.5.7\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
     </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil.Mdb">
+      <HintPath>Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.Mdb.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Zenject.ReflectionBaking.Mono.Cecil">
+      <HintPath>Assets\Plugins\Zenject\OptionalExtras\ReflectionBaking\Lib\Zenject.ReflectionBaking.Mono.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="unityplastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.5.7\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
@@ -667,6 +694,18 @@
     <ProjectReference Include="Abstractions.csproj">
       <Project>{15DCC3AE-3397-2984-FDC3-1233EDE7EA6A}</Project>
       <Name>Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="Zenject.csproj">
+      <Project>{0DAFE028-85C2-77A1-92F7-735461333E2A}</Project>
+      <Name>Zenject</Name>
+    </ProjectReference>
+    <ProjectReference Include="Utils.csproj">
+      <Project>{7DA4B339-3678-69B6-C535-D2EAD1DC7883}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="Core.csproj">
+      <Project>{1F6E9C80-5402-D48D-27AB-7F5ECE476A78}</Project>
+      <Name>Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

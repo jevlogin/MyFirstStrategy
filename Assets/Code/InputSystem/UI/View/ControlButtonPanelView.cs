@@ -11,6 +11,10 @@ namespace View
 {
     public sealed class ControlButtonPanelView : MonoBehaviour
     {
+        #region Fields
+
+        public event Action<ICommandExecutor> OnClick;
+
         [SerializeField] private Button _produceUnit;
         [SerializeField] private Button _moveButton;
         [SerializeField] private Button _patroulButton;
@@ -18,7 +22,11 @@ namespace View
         [SerializeField] private Button _stopButton;
 
         private Dictionary<Type, Button> _executorsToButtonList = new Dictionary<Type, Button>();
-        public event Action<ICommandExecutor> OnClick;
+
+        #endregion
+
+
+        #region UnityMethods
 
         private void Awake()
         {
@@ -32,6 +40,11 @@ namespace View
             };
             ClearButtons();
         }
+
+        #endregion
+
+
+        #region Methods
 
         public void SetButtons(List<ICommandExecutor> executors)
         {
@@ -49,6 +62,37 @@ namespace View
             }
         }
 
+        public void UnblockAllInteractions()
+        {
+            Debug.Log($"{name} - ControlButtonPanelView - UnblocAllInteractions");
+            SetInteractable(true);
+        }
+
+        private void SetInteractable(bool value)
+        {
+            foreach (var button in _executorsToButtonList.Values)
+            {
+                button.interactable = true;
+            }
+        }
+
+        public void BlockInteraction(ICommandExecutor executor)
+        {
+            Debug.Log($"BlockInteraction");
+            UnblockAllInteractions();
+            var button = GetButtonGameObjectByType(executor.GetType());
+            button.interactable = false;
+            button.gameObject.SetActive(false);
+        }
+
+        private Button GetButtonGameObjectByType(Type type)
+        {
+            return _executorsToButtonList
+                .Where(t => t.Key.IsAssignableFrom(type))
+                .First()
+                .Value;
+        }
+
         public void ClearButtons()
         {
             foreach (var buttton in _executorsToButtonList.Values)
@@ -57,5 +101,7 @@ namespace View
                 buttton.gameObject.SetActive(false);
             }
         }
+
+        #endregion
     }
 }

@@ -3499,6 +3499,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1861515548601172502}
   - component: {fileID: 1861515548608408656}
+  - component: {fileID: 5858183625207486937}
+  - component: {fileID: -697360849746176919}
+  - component: {fileID: -4659982645722539658}
+  - component: {fileID: -474313551273289367}
+  - component: {fileID: -8710595746218310423}
+  - component: {fileID: 2819240356235137829}
+  - component: {fileID: 1933453106680190720}
+  - component: {fileID: 5989666244246785664}
   m_Layer: 0
   m_Name: Ellen
   m_TagString: Untagged
@@ -3541,3 +3549,122 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5858183625207486937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861515548601015926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c2be5b110a162741b6cb063c1310884, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _navMeshAgent: {fileID: -8710595746218310423}
+--- !u!114 &-697360849746176919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861515548601015926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f19cac8947a7ad342ab39113bca27776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &-4659982645722539658
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861515548601015926}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.30996877, y: 1.6164106, z: 0.3810103}
+  m_Center: {x: 0, y: 0.8165069, z: 0}
+--- !u!114 &-474313551273289367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861515548601015926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3e8783ca00239f41b235360d556c83c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _icon: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  _name: Ellen
+  _health: 100
+  _maxHealth: 100
+  _meshRenderers:
+  - {fileID: 1861515548612514450}
+--- !u!195 &-8710595746218310423
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861515548601015926}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.64
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &2819240356235137829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861515548601015926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 370fc7de816f12e43b6a57950e88eaa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _model: {fileID: 11400000, guid: cdaa032850ab68d44ac31ea5250da129, type: 2}
+  _outLineMaterial: {fileID: 2100000, guid: b4db444d63fbf0b4bb4543107e087184, type: 2}
+  _oldMaterials: []
+  _newMaterials: []
+--- !u!114 &1933453106680190720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861515548601015926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58eac7e9c2596594c91dc553224891b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _navMeshAgent: {fileID: -8710595746218310423}
+--- !u!114 &5989666244246785664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861515548601015926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20627b8b7b30bd1419eecb7847d60d2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

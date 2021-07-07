@@ -1,14 +1,27 @@
 using UnityEngine;
 using Abstractions;
 using Model;
+using Zenject;
+using UnityEngine.EventSystems;
 
 
 namespace InputSystem
 {
     public sealed class InputController : MonoBehaviour
     {
-        private Camera _camera;
+        #region Fields
+
+        [SerializeField] private EventSystem _eventSystem;
         [SerializeField] private SelectedItemModel _currentSelected;
+
+        [Inject] private GroundClickModel _currentGroundClickModel;
+
+        private Camera _camera;
+
+        #endregion
+
+
+        #region UnityMethods
 
         private void Awake()
         {
@@ -17,16 +30,22 @@ namespace InputSystem
 
         private void Update()
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (!_eventSystem.IsPointerOverGameObject())
             {
-                if (Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out var hitInfo))
+                if (Input.GetButtonDown("Fire1"))
                 {
-                    if (hitInfo.collider.TryGetComponent<ISelectableItem>(out var selectableItem))
+                    if (Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out var hitInfo))
                     {
-                        _currentSelected.SetValue(selectableItem);
+                        if (hitInfo.collider.TryGetComponent<ISelectableItem>(out var selectableItem))
+                        {
+                            _currentSelected.SetValue(selectableItem);
+                        }
+                        _currentGroundClickModel.SetValue(hitInfo.point);
                     }
                 }
             }
         }
+
+        #endregion
     }
 }

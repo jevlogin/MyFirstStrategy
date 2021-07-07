@@ -20,6 +20,8 @@ namespace Core
 
         protected abstract void ExecuteSpecificCommand(T command); 
 
+        public virtual void Cancel() { }
+
         #endregion
     }
 }
