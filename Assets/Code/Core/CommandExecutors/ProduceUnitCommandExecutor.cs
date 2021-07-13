@@ -9,7 +9,7 @@ namespace CommandExecutors
     {
         protected override void ExecuteSpecificCommand(IProduceUnitCommand command)
         {
-            Debug.Log($"Execute Produce Unit Command");
+            //Debug.Log($"Execute Produce Unit Command");
         }
     }
 }

@@ -1,20 +1,16 @@
 ﻿using Abstractions;
 using System;
 using UnityEngine;
-
+using Zenject;
 
 namespace Model
 {
-    public sealed class PatroulUnitCommandCreator : CommandCreator<IPatroulCommand>
+    public sealed class PatroulUnitCommandCreator : CancelableCommandCreator<IPatroulCommand, Vector3>
     {
-        public override void ProcessCancel()
+        [Inject] private SelectedItemModel _selectedItemModel;
+        protected override IPatroulCommand GetCommandT(Vector3 paramResult)
         {
-            Debug.Log($"{nameof(StopUnitCommandCreator)} - ProcessCancel");
-        }
-
-        protected override void CreateSpecificCommand(Action<IPatroulCommand> onCreate)
-        {
-            Debug.Log($"PatroulUnitCommandCreator");
+            return new PatroulUnitCommand(_selectedItemModel.Value.CurrentPosition, paramResult);
         }
     }
 }

@@ -1,20 +1,14 @@
 using Abstractions;
-using System;
 using UnityEngine;
+
 
 namespace Model
 {
-    public sealed class AttackUnitCommandCreator : CommandCreator<IAttackCommand>
+    public sealed class AttackUnitCommandCreator : CancelableCommandCreator<IAttackCommand, IAttackable>
     {
-        public override void ProcessCancel()
+        protected override IAttackCommand GetCommandT(IAttackable paramResult)
         {
-            Debug.Log($"{nameof(AttackUnitCommandCreator)} - ProcessCancel");
-
-        }
-
-        protected override void CreateSpecificCommand(Action<IAttackCommand> onCreate)
-        {
-            Debug.Log($"AttackUnitCommandCreator");
+            return new AttackUnitCommand(paramResult);
         }
     }
 }

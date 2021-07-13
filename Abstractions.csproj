@@ -63,7 +63,9 @@
     <Compile Include="Assets\Code\Abstractions\ISelectableItem.cs" />
     <Compile Include="Assets\Code\Abstractions\ICommand.cs" />
     <Compile Include="Assets\Code\Abstractions\IMoveCommand.cs" />
+    <Compile Include="Assets\Code\Abstractions\IAttackable.cs" />
     <Compile Include="Assets\Code\Abstractions\IStopCommand.cs" />
+    <Compile Include="Assets\Code\Abstractions\IHealthHolder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Code\Abstractions\Abstractions.asmdef" />

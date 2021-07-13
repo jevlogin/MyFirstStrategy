@@ -1,29 +1,32 @@
 using Abstractions;
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 
 namespace Core
 {
-    internal sealed class Unit : MonoBehaviour, ISelectableItem
+    internal sealed class Unit : MonoBehaviour, ISelectableItem, IAttackable
     {
+        #region Fields
+
+        [SerializeField] private List<Renderer> _meshRenderers;
         [SerializeField] private Sprite _icon;
         [SerializeField] private string _name;
         [SerializeField] private float _health;
         [SerializeField] private float _maxHealth;
-        [SerializeField] private List<Renderer> _meshRenderers;
 
-        public Sprite Icon => _icon;
+        #endregion
 
-        public string Name => _name;
 
-        public float Health => _health;
-
-        public float MaxHealth => _maxHealth;
+        #region Properties
 
         public List<Renderer> Renderers => _meshRenderers;
+        public Sprite Icon => _icon;
+        public Vector3 CurrentPosition => transform.position; 
+        public string Name => _name;
+        public float Health => _health;
+        public float MaxHealth => _maxHealth;
+
+        #endregion
     }
 }

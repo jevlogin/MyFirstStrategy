@@ -64,7 +64,7 @@ namespace View
 
         public void UnblockAllInteractions()
         {
-            Debug.Log($"{name} - ControlButtonPanelView - UnblocAllInteractions");
+            //Debug.Log($"{name} - ControlButtonPanelView - UnblocAllInteractions");
             SetInteractable(true);
         }
 
@@ -78,7 +78,7 @@ namespace View
 
         public void BlockInteraction(ICommandExecutor executor)
         {
-            Debug.Log($"BlockInteraction");
+            //Debug.Log($"BlockInteraction");
             UnblockAllInteractions();
             var button = GetButtonGameObjectByType(executor.GetType());
             button.interactable = false;

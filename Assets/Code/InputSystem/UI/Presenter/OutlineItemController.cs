@@ -28,6 +28,8 @@ namespace Presenter
             _model.OnUpdated += UpdateOutline;
         }
 
+
+
         private void OnDestroy()
         {
             _model.OnUpdated -= UpdateOutline;
@@ -51,15 +53,18 @@ namespace Presenter
 
         private void SetSelected()
         {
-            foreach (var renderer in _currentSelectable.Renderers)
+            if (_currentSelectable != null)
             {
-                _newMaterials = new List<Material>
+                foreach (var renderer in _currentSelectable.Renderers)
+                {
+                    _newMaterials = new List<Material>
                 {
                     _outLineMaterial
                 };
-                _newMaterials.AddRange(renderer.materials);
+                    _newMaterials.AddRange(renderer.materials);
 
-                renderer.materials = _newMaterials.ToArray();
+                    renderer.materials = _newMaterials.ToArray();
+                }
             }
         }
 

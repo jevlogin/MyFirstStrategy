@@ -2,7 +2,6 @@ using Abstractions;
 using Core;
 using System;
 
-
 namespace Model
 {
     public abstract class CommandCreator<T> where T : ICommand
@@ -18,7 +17,7 @@ namespace Model
         }
 
         protected abstract void CreateSpecificCommand(Action<T> onCreate);
-        public abstract void ProcessCancel();
+        public abstract void CancelCommand();
 
         #endregion
     }

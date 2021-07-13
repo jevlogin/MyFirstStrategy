@@ -45,11 +45,13 @@ namespace Model
 
         private void ProcessOnCancel()
         {
-            _produceCreator.ProcessCancel();
-            _attackCreator.ProcessCancel();
-            _moveCreator.ProcessCancel();
-            _stopCreator.ProcessCancel();
-            _patroulCreator.ProcessCancel();
+            _commandIsPending = false;
+
+            _produceCreator.CancelCommand();
+            _attackCreator.CancelCommand();
+            _moveCreator.CancelCommand();
+            _stopCreator.CancelCommand();
+            _patroulCreator.CancelCommand();
 
             OnCommandCancel?.Invoke();
         }

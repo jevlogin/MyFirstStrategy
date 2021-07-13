@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Code\Core\CommandExecutors\PatroulCommandExecutor.cs" />
+    <Compile Include="Assets\Code\Core\CommandExecutors\StopUnitMovement.cs" />
     <Compile Include="Assets\Code\Core\CommandExecutors\StopCommandExecutor.cs" />
     <Compile Include="Assets\Code\Core\CommandExecutorBase.cs" />
     <Compile Include="Assets\Code\Core\Unit.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Assets\Code\Core\MainBuilding.cs" />
     <Compile Include="Assets\Code\Core\CommandExecutors\MoveCommandExecutor.cs" />
     <Compile Include="Assets\Code\Core\CommandExecutors\AttackCommandExecutor.cs" />
+    <Compile Include="Assets\Code\Core\CommandExecutors\StopAwaiter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Code\Core\Core.asmdef" />
@@ -689,6 +691,10 @@
     <ProjectReference Include="Abstractions.csproj">
       <Project>{15DCC3AE-3397-2984-FDC3-1233EDE7EA6A}</Project>
       <Name>Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="Utils.csproj">
+      <Project>{7DA4B339-3678-69B6-C535-D2EAD1DC7883}</Project>
+      <Name>Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

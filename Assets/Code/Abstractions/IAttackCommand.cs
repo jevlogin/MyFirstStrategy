@@ -5,6 +5,6 @@ namespace Abstractions
 {
     public interface IAttackCommand : ICommand
     {
-        GameObject Target { get; }
+        IAttackable Target { get; }
     }
 }

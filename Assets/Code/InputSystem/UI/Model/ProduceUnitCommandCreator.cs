@@ -24,9 +24,9 @@ namespace Model
             onCreate?.Invoke(_assets.Inject(new ProduceUnitCommand()));
         }
 
-        public override void ProcessCancel()
+        public override void CancelCommand()
         {
-            Debug.Log($"{nameof(ProduceUnitCommandCreator)} - ProcessCancel");
+            //Debug.Log($"{nameof(ProduceUnitCommandCreator)} - ProcessCancel");
         }
 
         #endregion

@@ -4,16 +4,11 @@ using UnityEngine;
 
 namespace Abstractions
 {
-    public interface ISelectableItem
+    public interface ISelectableItem : IHealthHolder
     {
         Sprite Icon { get; }
-
-        string Name { get; }
-
-        float Health { get; }
-
-        float MaxHealth { get; }
-
         List<Renderer> Renderers { get; }
+        Vector3 CurrentPosition { get; }
+        string Name { get; }
     }
 }

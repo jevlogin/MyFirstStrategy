@@ -12,6 +12,8 @@ namespace Model
 
         [SerializeField] private AssetStorage _assets;
         [SerializeField] private GroundClickModel _currentGroundClick;
+        [SerializeField] private SelectedItemModel _selectedItemModel;
+        [SerializeField] private AttackableTargetModel _dummyTarget;
 
         #endregion
 
@@ -29,6 +31,11 @@ namespace Model
             Container.Bind<CommandCreator<IMoveCommand>>().To<MoveUnitCommandCreator>().AsSingle();
             Container.Bind<CommandCreator<IAttackCommand>>().To<AttackUnitCommandCreator>().AsSingle();
             Container.Bind<CommandCreator<IPatroulCommand>>().To<PatroulUnitCommandCreator>().AsSingle();
+
+            Container.Bind<IAwaitable<Vector3>>().FromInstance(_currentGroundClick).AsSingle();
+            Container.Bind<IAwaitable<IAttackable>>().FromInstance(_dummyTarget).AsSingle();
+            Container.Bind<AttackableTargetModel>().FromInstance(_dummyTarget).AsSingle();
+            Container.Bind<SelectedItemModel>().FromInstance(_selectedItemModel).AsSingle();
         }
 
         #endregion

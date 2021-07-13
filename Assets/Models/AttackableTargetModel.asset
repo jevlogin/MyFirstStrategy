@@ -9,6 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4b346ed2233d0641a6c2a6e50f048d1, type: 3}
-  m_Name: SelectableValue
+  m_Script: {fileID: 11500000, guid: c6685fa6568a3014ba7b1fb52a9bf924, type: 3}
+  m_Name: AttackableTargetModel
   m_EditorClassIdentifier: 

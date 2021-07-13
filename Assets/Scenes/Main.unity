@@ -1740,8 +1740,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcfc7f6f26e763744ac65d63d983595f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventSystem: {fileID: 1775340671}
-  _currentSelected: {fileID: 11400000, guid: cdaa032850ab68d44ac31ea5250da129, type: 2}
 --- !u!4 &513967626
 Transform:
   m_ObjectHideFlags: 0
@@ -2346,8 +2344,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.8773585, g: 0, b: 0.056577362, a: 0.84313726}
+  m_Intensity: 2.25
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -3280,8 +3278,8 @@ Camera:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 3
+  m_BackGroundColor: {r: 0.048059814, g: 0.1174202, b: 0.2264151, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -5226,8 +5224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d566ae220d94b443be54a20a2a3c320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _view: {fileID: 1541886413}
   _selectedItemModel: {fileID: 11400000, guid: cdaa032850ab68d44ac31ea5250da129, type: 2}
+  _view: {fileID: 1541886413}
 --- !u!114 &1541886413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6284,6 +6282,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _assets: {fileID: 11400000, guid: cb1f290e6f47e574081ba8608cceb7b4, type: 2}
   _currentGroundClick: {fileID: 11400000, guid: c5881a350f3eeab4dbfb910ed75ee63b, type: 2}
+  _selectedItemModel: {fileID: 11400000, guid: cdaa032850ab68d44ac31ea5250da129, type: 2}
+  _dummyTarget: {fileID: 11400000, guid: 1f0c128dfd13b6045b8ec6b9645446e0, type: 2}
 --- !u!4 &1894895331
 Transform:
   m_ObjectHideFlags: 0
@@ -6471,6 +6471,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1958686902}
   m_CullTransparentMesh: 1
+--- !u!1 &1971212746 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8597372412115247706, guid: df401a474fcdbb64381d3edb0ac38f99, type: 3}
+  m_PrefabInstance: {fileID: 8597372412318442558}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1971212749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1971212746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3e8783ca00239f41b235360d556c83c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _meshRenderers: []
+  _icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  _name: Chomper
+  _health: 300
+  _maxHealth: 500
 --- !u!1 &1999106226
 GameObject:
   m_ObjectHideFlags: 0

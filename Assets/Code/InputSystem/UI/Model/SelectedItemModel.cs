@@ -6,18 +6,8 @@ using UnityEngine;
 namespace Model
 {
     [CreateAssetMenu(fileName = "SelectedItemModel", menuName = "Data/SelectedItemModel", order = 51)]
-    public sealed class SelectedItemModel : ScriptableObject
+    public sealed class SelectedItemModel : ScriptableObjectContainerBase<ISelectableItem>
     {
-        private ISelectableItem _value;
-
-        public ISelectableItem Value => _value;
-
-        public void SetValue(ISelectableItem item)
-        {
-            _value = item;
-            OnUpdated?.Invoke(item);
-        }
-
-        public event Action<ISelectableItem> OnUpdated;
+       
     }
 }

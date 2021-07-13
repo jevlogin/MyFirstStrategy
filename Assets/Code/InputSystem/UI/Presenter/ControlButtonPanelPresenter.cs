@@ -10,6 +10,8 @@ namespace Presenter
 {
     public sealed class ControlButtonPanelPresenter : MonoBehaviour
     {
+        #region Fields
+
         [SerializeField] private SelectedItemModel _selectedItemModel;
         [SerializeField] private ControlButtonPanelView _view;
 
@@ -17,13 +19,21 @@ namespace Presenter
 
         private ISelectableItem _currentSelectableItem;
 
+        #endregion
+
+
+        #region UnityMethods
+
         private void Start()
         {
             _view.OnClick += ClickHandler;
 
-            _model.OnCommandSent += _view.UnblockAllInteractions;
-            _model.OnCommandCancel += _view.UnblockAllInteractions;
-            _model.OnCommandAccepted += _view.BlockInteraction;
+            if (_model != null)
+            {
+                _model.OnCommandSent += _view.UnblockAllInteractions;
+                _model.OnCommandCancel += _view.UnblockAllInteractions;
+                _model.OnCommandAccepted += _view.BlockInteraction;
+            }
 
             _selectedItemModel.OnUpdated += SetButton;
         }
@@ -36,6 +46,11 @@ namespace Presenter
             _model.OnCommandCancel -= _view.UnblockAllInteractions;
             _model.OnCommandAccepted -= _view.BlockInteraction;
         }
+
+        #endregion
+
+
+        #region Methods
 
         private void ClickHandler(ICommandExecutor executor)
         {
@@ -63,5 +78,7 @@ namespace Presenter
                 _view.SetButtons(executors);
             }
         }
+
+        #endregion
     }
 }

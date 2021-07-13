@@ -7,9 +7,9 @@ namespace Model
 {
     public sealed class StopUnitCommandCreator : CommandCreator<IStopCommand>
     {
-        public override void ProcessCancel()
+        public override void CancelCommand()
         {
-            Debug.Log($"{nameof(StopUnitCommandCreator)} - ProcessCancel");
+            //Debug.Log($"{nameof(StopUnitCommandCreator)} - ProcessCancel");
         }
 
         protected override void CreateSpecificCommand(Action<IStopCommand> onCreate)

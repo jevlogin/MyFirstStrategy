@@ -3,7 +3,7 @@ using Abstractions;
 using Model;
 using Zenject;
 using UnityEngine.EventSystems;
-
+using System.Linq;
 
 namespace InputSystem
 {
@@ -11,11 +11,12 @@ namespace InputSystem
     {
         #region Fields
 
-        [SerializeField] private EventSystem _eventSystem;
-        [SerializeField] private SelectedItemModel _currentSelected;
+        [Inject] private AttackableTargetModel _attackable;
 
+        [Inject] private SelectedItemModel _currentSelected;
         [Inject] private GroundClickModel _currentGroundClickModel;
 
+        private EventSystem _eventSystem;
         private Camera _camera;
 
         #endregion
@@ -26,6 +27,7 @@ namespace InputSystem
         private void Awake()
         {
             _camera = Camera.main;
+            _eventSystem = EventSystem.current;
         }
 
         private void Update()
@@ -38,9 +40,32 @@ namespace InputSystem
                     {
                         if (hitInfo.collider.TryGetComponent<ISelectableItem>(out var selectableItem))
                         {
-                            _currentSelected.SetValue(selectableItem);
+                            if (_currentSelected.Value != null || _currentSelected.Value != default)
+                            {
+                                if (!_currentSelected.Value.Equals(selectableItem))
+                                {
+                                    _currentSelected.SetValue(selectableItem);
+                                    Debug.Log($"различные. добавляем новую");
+                                }
+                            }
+                            else
+                            {
+                                _currentSelected.SetValue(selectableItem);
+                                Debug.Log($"различные. START");
+                            }
                         }
-                        _currentGroundClickModel.SetValue(hitInfo.point);
+                        else
+                        {
+                            if (hitInfo.collider.TryGetComponent<IAttackable>(out var attackable))
+                            {
+                                _attackable.SetValue(attackable);
+                            }
+                            else
+                            {
+                                _currentGroundClickModel.SetValue(hitInfo.point);
+                                _currentSelected.SetValue(null);
+                            }
+                        }
                     }
                 }
             }
