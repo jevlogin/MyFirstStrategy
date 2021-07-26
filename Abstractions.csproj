@@ -60,6 +60,7 @@
     <Compile Include="Assets\Code\Abstractions\IPatroulCommand.cs" />
     <Compile Include="Assets\Code\Abstractions\ICommandExecutor.cs" />
     <Compile Include="Assets\Code\Abstractions\IAttackCommand.cs" />
+    <Compile Include="Assets\Code\Abstractions\ITimeModel.cs" />
     <Compile Include="Assets\Code\Abstractions\ISelectableItem.cs" />
     <Compile Include="Assets\Code\Abstractions\ICommand.cs" />
     <Compile Include="Assets\Code\Abstractions\IMoveCommand.cs" />
@@ -691,6 +692,10 @@
     <ProjectReference Include="Utils.csproj">
       <Project>{7DA4B339-3678-69B6-C535-D2EAD1DC7883}</Project>
       <Name>Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniRx.csproj">
+      <Project>{78B2B731-9689-ECDE-A3EA-390E3CCB9EF1}</Project>
+      <Name>UniRx</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

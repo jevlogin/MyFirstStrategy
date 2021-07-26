@@ -1,8 +1,11 @@
+using System;
+
+
 namespace Abstractions
 {
     public interface IHealthHolder
     {
-        float Health { get; }
+        IObservable<float> Health { get; }
         float MaxHealth { get; }
     }
 }

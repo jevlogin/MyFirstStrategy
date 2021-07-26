@@ -13,12 +13,13 @@ GameObject:
   - component: {fileID: 4402800322382462107}
   - component: {fileID: 4402800322382462105}
   - component: {fileID: 4402800322382462108}
+  - component: {fileID: 4402800321055888186}
   m_Layer: 0
   m_Name: BigBuild
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4402800321061598056
 Transform:
@@ -89,9 +90,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45af634283336c54aae1a4a80b06d4bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unitPrefab: {fileID: 8597372412115247704, guid: df401a474fcdbb64381d3edb0ac38f99, type: 3}
   _unitsParent: {fileID: 0}
-  _icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  _icon: {fileID: 21300000, guid: a2a5028d1c090674384ff8437eed2feb, type: 3}
   _name: Big Build
   _health: 5000
   _maxHealth: 10000
@@ -108,11 +108,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _model: {fileID: 11400000, guid: cdaa032850ab68d44ac31ea5250da129, type: 2}
-  _outlineMaterial: {fileID: 2100000, guid: ffa4e83286170dc488517cea2f31f97f, type: 2}
-  _meshRenderers: []
+  _outLineMaterial: {fileID: 2100000, guid: ffa4e83286170dc488517cea2f31f97f, type: 2}
   _oldMaterials: []
   _newMaterials: []
-  _isSelected: 0
+--- !u!114 &4402800321055888186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4402800321061826376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c2d6fb7cc7aa6546813d4e6ecd620a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4402800321061826378
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,8 +138,8 @@ GameObject:
   m_Name: VegetationLarge04_LOD00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4402800321061598058
 Transform:
@@ -209,8 +219,8 @@ GameObject:
   m_Name: VegetationLarge04_LOD01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4402800321061598060
 Transform:
@@ -290,8 +300,8 @@ GameObject:
   m_Name: VegetationLarge04_LOD02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4402800321061598062
 Transform:

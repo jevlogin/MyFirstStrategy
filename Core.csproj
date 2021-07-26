@@ -58,14 +58,16 @@
   <ItemGroup>
     <Compile Include="Assets\Code\Core\CommandExecutors\PatroulCommandExecutor.cs" />
     <Compile Include="Assets\Code\Core\CommandExecutors\StopUnitMovement.cs" />
+    <Compile Include="Assets\Code\Core\CoreInstaller.cs" />
+    <Compile Include="Assets\Code\Core\CommandExecutors\StopAwaiter.cs" />
     <Compile Include="Assets\Code\Core\CommandExecutors\StopCommandExecutor.cs" />
     <Compile Include="Assets\Code\Core\CommandExecutorBase.cs" />
     <Compile Include="Assets\Code\Core\Unit.cs" />
     <Compile Include="Assets\Code\Core\CommandExecutors\ProduceUnitCommandExecutor.cs" />
     <Compile Include="Assets\Code\Core\MainBuilding.cs" />
+    <Compile Include="Assets\Code\Core\TimeModel.cs" />
     <Compile Include="Assets\Code\Core\CommandExecutors\MoveCommandExecutor.cs" />
     <Compile Include="Assets\Code\Core\CommandExecutors\AttackCommandExecutor.cs" />
-    <Compile Include="Assets\Code\Core\CommandExecutors\StopAwaiter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Code\Core\Core.asmdef" />
@@ -695,6 +697,14 @@
     <ProjectReference Include="Utils.csproj">
       <Project>{7DA4B339-3678-69B6-C535-D2EAD1DC7883}</Project>
       <Name>Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniRx.csproj">
+      <Project>{78B2B731-9689-ECDE-A3EA-390E3CCB9EF1}</Project>
+      <Name>UniRx</Name>
+    </ProjectReference>
+    <ProjectReference Include="Zenject.csproj">
+      <Project>{0DAFE028-85C2-77A1-92F7-735461333E2A}</Project>
+      <Name>Zenject</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -45,13 +45,11 @@ namespace InputSystem
                                 if (!_currentSelected.Value.Equals(selectableItem))
                                 {
                                     _currentSelected.SetValue(selectableItem);
-                                    Debug.Log($"различные. добавляем новую");
                                 }
                             }
                             else
                             {
                                 _currentSelected.SetValue(selectableItem);
-                                Debug.Log($"различные. START");
                             }
                         }
                         else

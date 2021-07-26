@@ -56,6 +56,8 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Code\InputSystem\UI\View\TopPanelView.cs" />
+    <Compile Include="Assets\Code\InputSystem\UI\View\MenuView.cs" />
     <Compile Include="Assets\Code\InputSystem\UI\View\SelectedItemView.cs" />
     <Compile Include="Assets\Code\InputSystem\UI\View\ControlButtonPanelView.cs" />
     <Compile Include="Assets\Code\InputSystem\UI\View\MouseInteractionsHandler.cs" />
@@ -695,6 +697,10 @@
     <ProjectReference Include="Core.csproj">
       <Project>{1F6E9C80-5402-D48D-27AB-7F5ECE476A78}</Project>
       <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="UniRx.csproj">
+      <Project>{78B2B731-9689-ECDE-A3EA-390E3CCB9EF1}</Project>
+      <Name>UniRx</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

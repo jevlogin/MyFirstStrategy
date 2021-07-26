@@ -1,5 +1,7 @@
 using Abstractions;
+using System;
 using System.Collections.Generic;
+using UniRx;
 using UnityEngine;
 
 
@@ -15,6 +17,8 @@ namespace Core
         [SerializeField] private float _health;
         [SerializeField] private float _maxHealth;
 
+        private ReactiveProperty<float> _reactiveHealth;
+
         #endregion
 
 
@@ -22,10 +26,26 @@ namespace Core
 
         public List<Renderer> Renderers => _meshRenderers;
         public Sprite Icon => _icon;
-        public Vector3 CurrentPosition => transform.position; 
+        public Vector3 CurrentPosition => transform.position;
         public string Name => _name;
-        public float Health => _health;
+        public IObservable<float> Health => _reactiveHealth;
         public float MaxHealth => _maxHealth;
+
+        #endregion
+
+
+        #region UnityMethods
+
+        private void Awake()
+        {
+            _reactiveHealth = new ReactiveProperty<float>(_health);
+        }
+
+
+        private void Update()
+        {
+            _reactiveHealth.Value -= Time.deltaTime;
+        }
 
         #endregion
     }
