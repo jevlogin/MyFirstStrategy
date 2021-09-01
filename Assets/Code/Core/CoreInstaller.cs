@@ -1,3 +1,5 @@
+using CommandExecutors;
+using UnityEngine;
 using Zenject;
 
 
@@ -8,6 +10,7 @@ namespace Core
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<TimeModel>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ProduceUnitCommandExecutor>().FromComponentsInHierarchy().AsSingle();
         }
     }
 }

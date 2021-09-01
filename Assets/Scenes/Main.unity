@@ -4706,7 +4706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _view: {fileID: 1289353645}
-  _menu: {fileID: 2142686460}
+  _menuPauseToContinue: {fileID: 2142686460}
 --- !u!114 &1289353647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7663,7 +7663,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.18867922, g: 0.17176929, b: 0.17176929, a: 0.6509804}
+  m_Color: {r: 0.18867922, g: 0.17176929, b: 0.17176929, a: 0.84313726}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

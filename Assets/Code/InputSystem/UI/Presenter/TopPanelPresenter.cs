@@ -11,14 +11,14 @@ namespace Presenter
     public sealed class TopPanelPresenter : MonoBehaviour
     {
         [SerializeField] private TopPanelView _view;
-        [SerializeField] private GameObject _menu;
+        [SerializeField] private GameObject _menuPauseToContinue;
 
         [Inject] private ITimeModel _timeModel;
 
         private void Awake()
         {
             _view.MenuButtonClick.Subscribe(_ => HandleMenuButtonClick());
-            _timeModel.GameTime.Subscribe(time => _view.TimeFormatted = TimeSpan.FromSeconds(time).ToString());
+            _timeModel.GameTime.Subscribe(time => _view.TimeFormatted = TimeSpan.FromSeconds(time).ToString()).AddTo(this);
         }
 
 
@@ -26,7 +26,7 @@ namespace Presenter
         {
             //  пока с меню
             Debug.Log($"ShowMenu");
-            _menu.SetActive(true);
+            _menuPauseToContinue.SetActive(true);
             _timeModel.Pause();
         }
     }

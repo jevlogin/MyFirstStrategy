@@ -9,15 +9,22 @@ namespace View
 {
     public sealed class TopPanelView : MonoBehaviour
     {
+        #region Fields
+
         [SerializeField] private TextMeshProUGUI _textMeshPro;
         [SerializeField] private Button _menuButton;
 
+        #endregion
+
+
+        #region Properties
+
+        public IObservable<Unit> MenuButtonClick => _menuButton.OnClickAsObservable();
         public string TimeFormatted
         {
             set => _textMeshPro.text = value;
         }
 
-        public Button Button => _menuButton;
-        public IObservable<Unit> MenuButtonClick => _menuButton.OnClickAsObservable();
+        #endregion
     }
 }

@@ -13,6 +13,7 @@ namespace Model
         #region Fields
 
         [Inject] private AssetStorage _assets;
+        [Inject] private DiContainer _container;
 
         #endregion
 
@@ -21,7 +22,9 @@ namespace Model
 
         protected override void CreateSpecificCommand(Action<IProduceUnitCommand> onCreate)
         {
-            onCreate?.Invoke(_assets.Inject(new ProduceUnitCommand()));
+            var command = new ProduceUnitCommand();
+            _container.Inject(command);
+            onCreate?.Invoke(_assets.Inject(command));
         }
 
         public override void CancelCommand()

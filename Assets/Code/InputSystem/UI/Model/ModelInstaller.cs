@@ -36,6 +36,11 @@ namespace Model
             Container.Bind<IAwaitable<IAttackable>>().FromInstance(_dummyTarget).AsSingle();
             Container.Bind<AttackableTargetModel>().FromInstance(_dummyTarget).AsSingle();
             Container.Bind<SelectedItemModel>().FromInstance(_selectedItemModel).AsSingle();
+
+            //initialization Ellen
+            Container.Bind<int>().WithId("EllenProductionTime").FromInstance(3);
+            Container.Bind<string>().WithId("EllenUnitName").FromInstance("Ellen");
+            //Container.Bind<Sprite>().WithId("EllenUnitIcon").FromInstance();
         }
 
         #endregion
